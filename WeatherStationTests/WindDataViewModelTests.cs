@@ -30,9 +30,9 @@ namespace WeatherStationTests
             // Arrange
 
             // Act       
-
+            double actual = _sut.MPStoKPH(mps);
             // Assert
-
+            Assert.Equal(actual, expected);
             /// TODO : git commit -a -m "T01 MPStoKPH_AlwaysReturnGoodValue : Done"
         }
 
