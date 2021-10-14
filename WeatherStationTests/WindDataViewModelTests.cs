@@ -54,9 +54,9 @@ namespace WeatherStationTests
             // Arrange
 
             // Act       
-
+            double actuel = _sut.KPHtoMPS(kph);
             // Assert
-
+            Assert.Equal(actuel, expected);
             /// TODO : git commit -a -m "T02 KPHtoMPS_AlwaysReturnGoodValue : Done"
         }
 
