@@ -14,6 +14,11 @@ namespace WeatherApp.ViewModels
 
         public DelegateCommand<string> GetDataCommand { get; set; }
 
+        public void SetWindDataService(IWinDataService winDataService)
+        {
+            WindDataService = winDataService;
+        }
+
         public double KPHtoMPS(double kph)
         {
             double mps = kph * 1000 / 3600;
