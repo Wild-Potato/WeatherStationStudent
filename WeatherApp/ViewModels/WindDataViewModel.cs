@@ -30,5 +30,17 @@ namespace WeatherApp.ViewModels
             return kph;
         }
 
+        public bool CanGetData()
+        {
+            if (WindDataService == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }
