@@ -72,7 +72,7 @@ namespace WeatherStationTests
             // Act       
 
             // Assert
-
+            Assert.Throws<NullReferenceException>(() => _sut.GetDataCommand.Execute(_sut.WindDataService));
             /// TODO : git commit -a -m "T03 GetDataCommand_ExecuteIfNullService_ShouldThrowNullException : Done"
         }
 
@@ -85,9 +85,11 @@ namespace WeatherStationTests
         {
             // Arrange
 
+
             // Act       
 
             // Assert
+            
 
             /// TODO : git commit -a -m "T04 CanGetData_WhenServiceIsNull_ReturnsFalse : Done"
         }

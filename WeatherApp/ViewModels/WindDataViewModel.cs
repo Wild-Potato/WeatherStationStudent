@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WeatherApp.Commands;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
@@ -8,6 +10,10 @@ namespace WeatherApp.ViewModels
     {
         /// TODO : Ajoutez le code nécessaire pour réussir les tests et répondre aux requis du projet
         /// 
+        public IWinDataService WindDataService;
+
+        public DelegateCommand<string> GetDataCommand { get; set; }
+
         public double KPHtoMPS(double kph)
         {
             double mps = kph * 1000 / 3600;
