@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WeatherApp.Commands;
+using WeatherApp.Models;
 using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
@@ -13,6 +14,7 @@ namespace WeatherApp.ViewModels
         public IWinDataService WindDataService;
 
         public DelegateCommand<string> GetDataCommand { get; set; }
+        public WindDataModel CurrentData { get; set; }
 
         public void SetWindDataService(IWinDataService winDataService)
         {

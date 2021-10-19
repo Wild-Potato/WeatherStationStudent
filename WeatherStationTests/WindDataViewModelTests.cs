@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Moq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
+using WeatherApp.Models;
 using WeatherApp.Services;
 using WeatherApp.ViewModels;
 using Xunit;
@@ -150,17 +153,31 @@ namespace WeatherStationTests
         /// </summary>
         /// <remarks>T07</remarks>
         [Fact]
-        public void GetDataCommand_HaveCurrentDataWhenExecuted_ShouldPass()
+        public async Task GetDataCommand_HaveCurrentDataWhenExecuted_ShouldPassAsync()
         {
             // Arrange
+            var GDC = _sut.GetDataCommand;
+
+            Mock<IWinDataService> _myMock = new Mock<IWinDataService>();
+
+            _myMock.Setup(x => x.GetDataAsync()).Returns(GetSomeDataModel());
 
             // Act       
 
+            _sut.CurrentData = await _myMock.Object.GetDataAsync();
+            var actual = _sut.CurrentData;
+
             // Assert
+
+            Assert.NotNull(actual);
 
             /// TODO : git commit -a -m "T07 GetDataCommand_HaveCurrentDataWhenExecuted_ShouldPass : Done"
         }
 
+        public async Task<WindDataModel> GetSomeDataModel()
+        {
+            return new WindDataModel();
+        }
         /// <summary>
         /// Ne touchez pas à ça, c'est seulement pour respecter les standards
         /// de test qui veulent que la classe de tests implémente IDisposable
